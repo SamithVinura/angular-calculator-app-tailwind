@@ -33,58 +33,52 @@ export class AppComponent {
   }
 
   onFunctionClick(val:string){
-    if(this.funcT == 'NoFunction'){
+    if(val=='c'){
+      this.clearAll()
+    }
+    else if(this.funcT == 'NoFunction'){
       this.firstNumber = this.calValue
       this.calValue = 0
       this.calNumber = 'noValue'
       this.funcT = val
-    }else if(this.funcT!='NoFunction'){
+    }else if(this.funcT !='NoFunction'){
       this.secondNumber= this.calValue
       this.valueCalculate(val)
-        }
+    }
   }
 
   valueCalculate(val:string){
+
     if(this.funcT == '+'){
       const Total = this.firstNumber + this.secondNumber
       this.totalAssignedValue(Total,val)
-      if(val == '='){
-        this.onEqualPress()
-      }
+
     }
     if(this.funcT == '-'){
       const Total = this.firstNumber - this.secondNumber
       this.totalAssignedValue(Total,val)
-      if(val == '='){
-        this.onEqualPress()
-      }
     }
     if(this.funcT == '*'){
       const Total = this.firstNumber * this.secondNumber
       this.totalAssignedValue(Total,val)
-      if(val == '='){
-        this.onEqualPress()
-      }
+
     }
     if(this.funcT == '/'){
       const Total = this.firstNumber / this.secondNumber
       this.totalAssignedValue(Total,val)
-      if(val == '='){
-        this.onEqualPress()
-      }
+
     }
     if(this.funcT == '%'){
       const Total = this.firstNumber / this.secondNumber
       this.totalAssignedValue(Total,val)
-      if(val == '='){
-        this.onEqualPress()
-      }
+
     }
   }
 
   totalAssignedValue(Total:number,val:string){
     this.calValue = Total
     this.firstNumber = Total
+    this.secondNumber =0
     this.calNumber = 'noValue'
     this.funcT = val
   }
@@ -92,6 +86,15 @@ export class AppComponent {
   onEqualPress(){
     this.firstNumber = 0
     this.secondNumber = 0
+    this.calValue=0
+    this.funcT ='NoFunction'
+    this.calNumber = 'noValue'
+  }
+
+  clearAll(){
+    this.firstNumber = 0
+    this.secondNumber = 0
+    this.calValue = 0
     this.funcT ='NoFunction'
     this.calNumber = 'noValue'
   }
