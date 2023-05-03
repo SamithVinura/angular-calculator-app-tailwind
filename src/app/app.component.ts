@@ -48,18 +48,37 @@ export class AppComponent {
     if(this.funcT == '+'){
       const Total = this.firstNumber + this.secondNumber
       this.totalAssignedValue(Total,val)
+      if(val == '='){
+        this.onEqualPress()
+      }
     }
     if(this.funcT == '-'){
       const Total = this.firstNumber - this.secondNumber
       this.totalAssignedValue(Total,val)
+      if(val == '='){
+        this.onEqualPress()
+      }
     }
     if(this.funcT == '*'){
       const Total = this.firstNumber * this.secondNumber
       this.totalAssignedValue(Total,val)
+      if(val == '='){
+        this.onEqualPress()
+      }
     }
     if(this.funcT == '/'){
       const Total = this.firstNumber / this.secondNumber
       this.totalAssignedValue(Total,val)
+      if(val == '='){
+        this.onEqualPress()
+      }
+    }
+    if(this.funcT == '%'){
+      const Total = this.firstNumber / this.secondNumber
+      this.totalAssignedValue(Total,val)
+      if(val == '='){
+        this.onEqualPress()
+      }
     }
   }
 
@@ -68,5 +87,12 @@ export class AppComponent {
     this.firstNumber = Total
     this.calNumber = 'noValue'
     this.funcT = val
+  }
+
+  onEqualPress(){
+    this.firstNumber = 0
+    this.secondNumber = 0
+    this.funcT ='NoFunction'
+    this.calNumber = 'noValue'
   }
 }
